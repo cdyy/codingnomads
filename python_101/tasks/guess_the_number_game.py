@@ -5,9 +5,17 @@
 
 import random
 answer = random.randint(1, 10)
-guess = input("Guess a number that is between 1 and 10. Enter your guess: ")
+counter = 3
+guess = input("Guess a number that is between 1 and 10. You have 3 tries. Enter your guess: ")
 
-while guess != str(answer):
-    guess = input("Wrong! Please try again: ")
+while counter >= 1:
+    if guess != str(answer):
+        guess = input(f"Wrong! Remaining tries: {counter}. Please try again: ")
+        counter -= 1
+        continue
+    else: 
+        print("Correct! Bye!")
+        break
 
-print("Correct! Bye!")
+if counter < 1:
+    print(f"Remaining tries: {counter}. Sorry, you lost. Bye!")
